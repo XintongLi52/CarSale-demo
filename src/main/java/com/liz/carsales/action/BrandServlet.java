@@ -27,7 +27,7 @@ public class BrandServlet extends HttpServlet {
             preparedStatement.executeUpdate();
 
             PrintWriter printWriter = response.getWriter();
-            printWriter.println("Brand Added");
+            printWriter.println("Brand Added!");
         }
         catch(Exception e){
             System.out.println(e);
