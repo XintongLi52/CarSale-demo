@@ -15,10 +15,19 @@
     <div class="col-md-9">
         <h2>Registration</h2>
     </hr>
-        <form action="brandadd" method="post">
+        <form action="modeladd" method="post">
             <div class="form-group">
-                <label for="exampleInputName">Brand Name</label>
-                <input type="text" class="form-control" name="name" id="exampleInputName" placeholder="Enter a brand name">
+                <label for="exampleInputName">Brand</label>
+                <select name="brand_id" class="form-control">
+                    <option value="1">Honda</option>
+                    <option value="2">Toyota</option>
+                    <option value="3">Bajja</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputName">Model Name</label>
+                <input type="text" class="form-control" name="name" id="exampleInputName" placeholder="Enter model name">
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
