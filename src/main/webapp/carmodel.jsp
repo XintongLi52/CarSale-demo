@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="com.liz.carsales.db.DB" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,9 +23,22 @@
             <div class="form-group">
                 <label for="exampleInputName">Brand</label>
                 <select name="brand_id" class="form-control">
-                    <option value="1">Honda</option>
-                    <option value="2">Toyota</option>
-                    <option value="3">Bajja</option>
+                    <%
+                        Connection con = DB.getConnection();
+
+                        String sql = "select * from brand";
+
+                        PreparedStatement preparedStatement = con.prepareStatement(sql);
+
+                        ResultSet resultSet = preparedStatement.executeQuery();
+                        while(resultSet.next())
+                        {
+
+                    %>
+                    <option value="<%=resultSet.getString("id")%>"><%=resultSet.getString("name")%></option>
+
+                    <% } %>
+
                 </select>
             </div>
 
